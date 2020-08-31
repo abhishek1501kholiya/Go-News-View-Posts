@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>firebase</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    
+</head>
+<body>
+  <h1>Here you can post photos that can be viewed by others</h1>
+  <h4>Note once you click the upload image the image will get uploaded and clicking it multiple times will upload it multiple times</h4>
+  <input type="file" id= "photo">
+  <img id = "image"/>
+  <button onclick="uploadImage()"> upload Image</button>
+  <div class="input-group upload-group">
+    <input type="text" placeholder="Image Caption" id="imgDesc">
+  </div>
+  
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-storage.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>  
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+     <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDFryzejxSYbxM9yLhHphBQzo3ZZR2Z6w4",
+        authDomain: "go-news-3c47d.firebaseapp.com",
+        databaseURL: "https://go-news-3c47d.firebaseio.com",
+        projectId: "go-news-3c47d",
+        storageBucket: "go-news-3c47d.appspot.com",
+        messagingSenderId: "337934705204",
+        appId: "1:337934705204:web:15d127c5ce6d9add4ba061"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+var database ;
+database = firebase.database();
+  function uploadImage() {
+   const ref = firebase.storage().ref();
+    const file = document.querySelector("#photo").files[0]
+    var filename = file.name
+      const name = +new Date() + "-" + file.name 
+      var capture = $("#imageCaption").val() 
+      const metadata = {
+           contentType:file.type,
+        customMetadata:{
+            'caption': $("#imgDesc").val()
+          }
+       }
+       const task = ref.child(name).put(file,metadata)
+       
+       
+        task    
+       .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+           console.log(url);
+           var index = 0
+          alert("Image Upload Sucessful")
+           const image = document.querySelector('#image');
+          image.src = url;
+       
+          if(capture === undefined){
+            capture = null;
+          }
+          var rootRef = firebase.database().ref().child("Users/posts" + index);
+          var userID = firebase.auth().currentUser.uid;
+          var usersRef = rootRef.child(userID/url );
+         console.log(capture);
+          var postkey = {
+           '  url ': url,
+           'description': $("#imgDesc").val(),
+           'User' : userID
+          }
+         index += 1;
+        usersRef.update(postkey,function(error)
+          
+        {
+          //index += 1;
+          if(error){
+            alert('there is some issue ');
+          }
+        })
+          // var postKey = firebase.database().ref('Posts/').push().key;
+	       // 
+	         //  var updates = {};
+	       //     var postData = {
+	             	//url: url,
+	             //	caption: $("#imageCaption").val()
+	          //  	user: user.uid
+	            //};
+	           //updates['/Posts/'+postKey] = postData;
+	              //firebase.database().ref().set(updates);
+        })
+
+        function displayit (){
+         display(image.src);
+         }
+
+
+}
+          
+    
+
+</script>
+
+
+</body>
+<style>
+  
+  h1{
+        background-color: #ff4d4d;
+        margin: 100px auto;
+        text-align:center;
+        color:white
+    }
+</style>
+</html>

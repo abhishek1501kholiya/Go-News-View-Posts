@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Go News!</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+
+</head>
+<style>
+    body{
+        font-family: "Montserrat",sans-serif;
+    }
+ 
+     img{
+       position: absolute;
+        left: 5px;
+         top: 25px;
+     }
+     h1{
+        position: absolute;
+        left: 55px;
+         top: 25px;
+         color:orangered;
+         font-style:initial;
+         font-size: 40px;
+         font-weight: bolder;
+
+    }
+    .main-nav {
+    display: flex!important;
+    margin-right: 60px;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+    ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       font: x-large;
+    }
+    h2{
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: 4.8px;
+        line-height: 24px;
+        text-align: center;
+        position: absolute;
+        left: 400px;
+        top: 500px;
+    
+        }
+    nav{
+        position: absolute;
+        left: 650px;
+        top: 40px;
+        color: seagreen;
+        
+        display: flex!important;
+        margin-right: 60px;
+        flex-direction: row;
+        justify-content: flex-start;
+
+    }
+    a:hover {
+    text-decoration: underline;
+    color: white;
+}
+    
+      .nav-links{   
+    text-decoration: none;
+           color: #c9c9c9;
+         
+         font-family: "Open Sans",sans-serif;
+        letter-spacing: 1px;
+       font-size: 20px!important;
+       margin-left: 23px;
+       color: black;
+       border: black;
+      
+}
+h4{
+ font-size: 40px;
+
+ position:absolute;
+ letter-spacing: 4.8px;
+ line-height: 24px;
+  left: 150px;
+  top: 1300px;
+    
+}
+p{
+ font-size: 20px;
+
+  position:absolute;
+
+   left: 25px;
+   top: 1400px;
+   
+}
+h5{
+font-size: 40px;
+
+position:absolute;
+
+ left: 40px;
+ top: 1550px;  
+}
+h6{
+font-size: 40px;
+
+position:absolute;
+
+ left: 40px;
+ top: 1600px;  
+}
+h7{
+    font-size: 30px;
+
+position:absolute;
+position: absolute;
+        z-index: 999;
+        margin: 0 auto;
+        left: 0;
+        right: 0;        
+        text-align: center;
+      
+        background: rgba(0, 0, 0, 0.8);
+        font-family: Arial,sans-serif;
+        color: #fff;
+        width: 60%; /* Set the width of the positioned div */
+ left: 40px;
+ top: 1950px; 
+}
+h8{
+    font-size: 30px;
+
+position:absolute;
+
+ left: 40px;
+ top: 2350px; 
+} 
+p2{
+    font-size: 30px;
+
+position:absolute;
+width: 400px;
+height: 200px;
+ left: 40px;
+ top: 2450px; 
+}
+h9{
+    font-size: 30px;
+
+position:absolute;
+
+ left: 40px;
+ top: 2385px; 
+}
+p3{
+font-size: 30px;
+
+position:absolute;
+
+ left: 40px;
+ top: 3200px;
+}
+
+
+
+ 
+    .container{
+        width: 100%;
+     height: 100%;
+     padding:10px;
+     overflow: hidden;
+     overflow-y:  scroll;
+    }
+</style>
+<body>
+    <canvas id="DemoCanvas" width="500" height="600"></canvas> 
+<script>
+var canvas = document.getElementById("DemoCanvas");
+if (canvas.getContext) 
+{
+  var ctx = canvas.getContext('2d');
+  ctx.fillStyle='#fa4b2a';    // color of fill
+  ctx.fillRect(10, 40, 140, 160); // create rectangle  
+}
+</script>
+     
+    <div class="container">
+      
+        <h3><img src="Home.jpeg"></h3>
+        <h1 class="header-yellow-background">Go News!</h1>
+        <h2>OUR PLANET IS IN OUR HANDS</h2>
+        <nav class="navbar navbar-about">
+            <ul class="main-div" id="js-menu">
+            <li class="nav-links-list">
+                <a href="index2.html" class="nav-links nav-links-index2">Sign in</a>
+            </li>      
+            </ul>
+        </nav>
+       <h4>About Us</h4>
+       <p>GO News! is about saving  our environment in which live , our ecosystem . this web app is created to spread the awarness of keeping our environment clean and green to tell others about GLobal Warming , Pollution and other environmental problems and also about how to we can make our earth a better place to live in . In this app the user can share the environmental condition of their area  ,  they can show how they are helping to keep our environment clean and green and  can also  report against any one  who is spreading and throwing garbage and that can be seen by the Nagar Nigam of the particular area.</p>
+         
+       <h5>Facts</h5>
+       <button class="button button4">Get Started</button> 
+       <h6><img src="Mumbai_skyline_BWSL.jpg"></h6>
+       <h7>Did you know Mumbai will sink by 2050 due to increase in sea level</h7>
+       <h8>Share The Photos </h8>
+       <h9>Like - </h9>
+       <p3>People cleaning Ganga River</p3>
+       <p2> <img src="CleaningGanga.jpg"></p2>
+      
+      
+      </div>
+    
+
+</body>
+</html>
